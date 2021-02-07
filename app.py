@@ -1,15 +1,19 @@
 import os
 import random
-from flask import Flask, render_template
+import flask
 from project1 import getArtist, getTrack
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
 def hello_world():
     test = getTrack()
-    return test, test
+    prev  = ''
+    if (test['preview_url']):
+        prev = test['preview_url']
+    
+    return flask.render_template("index.html", image = test['album']['images'][0]['url'], name = test["name"], artist = test["album"]["artists"][0]["name"], id = test["id"], preview = prev)
 
 app.run(
     port=int(os.getenv('PORT', 8080))
