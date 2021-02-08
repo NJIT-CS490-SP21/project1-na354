@@ -7,7 +7,7 @@ app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
-def hello_world():
+def Startflask():
     test = getTrack()
     prev  = ''
     if (test['preview_url']):
