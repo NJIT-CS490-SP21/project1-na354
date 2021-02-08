@@ -25,8 +25,6 @@ headers = {
 
 Artists = ['66CXWjxzNUsdJxJ2JdwvnR', '4NHQUGzhtTLFvgF5SZesLK', '6M2wZ9GZgrQXHCFfjv46we']
 
-songs = [0,1,2,3,4,5,6,7,8,9]
-
 RandomID = random.choice(Artists)
 
 BASE_URL = 'https://api.spotify.com/v1/'
@@ -35,16 +33,15 @@ ARTIST_URL = 'https://api.spotify.com/v1/artists/'
 
 tracks = '/top-tracks?market=US'
 
+ran =random.randrange(10)
 
 def getArtist():
-    r = requests.get((ARTIST_URL + RandomID), headers=headers)
-    test =r.json()
-    return test['name']
+    req = requests.get((ARTIST_URL + RandomID), headers=headers)
+    song =req.json()
+    return song['name']
     
 def getTrack():
-    r = requests.get((ARTIST_URL + RandomID + tracks), headers=headers)
-    test =r.json()
-    return test['tracks'][random.choice(songs)]
-
-
+    req = requests.get((ARTIST_URL + RandomID + tracks), headers=headers)
+    song =req.json()
+    return song['tracks'][ran]
 
