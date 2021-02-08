@@ -2,7 +2,7 @@
 
 You do need to install flask to run this program.
 There are 3 files needed to run this. One python file servers as the flask host and one gets the backend info from the spotify api. Then a basic html file that prints the format.
-For the code to run you need to set the client and client secret id. I used a seperate file and hid the file.
+For the code to run you need to set the client (CLIENT_ID) and client secret id (CLIENT_SECRET). I used a seperate file and hid the file.
 Then you insert the artists ids to use and then theres two functions that use that id. One function gets the artist from the id and one gets a list of top tracks.
 From the toptracks function it returns a random song.
 The app.py file will then call the function from the project1.py file and return the sorted json data to print in html.
