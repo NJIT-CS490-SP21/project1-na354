@@ -17,5 +17,6 @@ def startflask():
     return flask.render_template("index.html", image = song['album']['images'][0]['url'], name = song["name"], artist = song["album"]["artists"][0]["name"], id = song["id"], preview = prev)
 
 app.run(
+    host=os.getenv('IP', '0.0.0.0'),
     port=int(os.getenv('PORT', 8080))
     )
