@@ -30,9 +30,6 @@ headers = {
 }
 
 
-
-
-
 Artists = ['66CXWjxzNUsdJxJ2JdwvnR', '4NHQUGzhtTLFvgF5SZesLK', '6M2wZ9GZgrQXHCFfjv46we']
 
 RandomID = random.choice(Artists)
@@ -44,11 +41,6 @@ ARTIST_URL = 'https://api.spotify.com/v1/artists/'
 tracks = '/top-tracks?market=US'
 
 ran =random.randrange(10)
-
-
-
-
-
 
 
 
