@@ -5,9 +5,15 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
+####################################################################
+
 CLIENT_ID = os.getenv('Client_ID')
 CLIENT_SECRET = os.getenv('Client_Secret')
 AUTH_URL = 'https://accounts.spotify.com/api/token'
+GENIUSCLIENT_ID = os.getenv('GeniusClient_ID')
+GENIUSCLIENT_Secret = os.getenv('GeniusClient_Secret')
+GENIUSAUTH_URL = os.getenv('GeniusAuth_ID')
+
 
 auth_response = requests.post(AUTH_URL, {
     'grant_type': 'client_credentials',
@@ -23,6 +29,10 @@ headers = {
     'Authorization': 'Bearer {token}'.format(token=access_token)
 }
 
+
+
+
+
 Artists = ['66CXWjxzNUsdJxJ2JdwvnR', '4NHQUGzhtTLFvgF5SZesLK', '6M2wZ9GZgrQXHCFfjv46we']
 
 RandomID = random.choice(Artists)
@@ -35,6 +45,13 @@ tracks = '/top-tracks?market=US'
 
 ran =random.randrange(10)
 
+
+
+
+
+
+
+
 def getArtist():
     req = requests.get((ARTIST_URL + RandomID), headers=headers)
     song =req.json()
@@ -44,6 +61,9 @@ def getTrack():
     req = requests.get((ARTIST_URL + RandomID + tracks), headers=headers)
     song =req.json()
     return song['tracks'][ran]
-    
+     
 song = getTrack()
-#print(song)
+testing = requests.get('https://api.genius.com/search?q=' + song["album"]["artists"][0]["name"] + song['name'] +  '&access_token=' + GENIUSAUTH_URL )   
+test = testing.json()
+print(song)
+print(test['response']['hits'][0]['result']['url'])
