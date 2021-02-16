@@ -5,8 +5,6 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
-####################################################################
-
 CLIENT_ID = os.getenv('Client_ID')
 CLIENT_SECRET = os.getenv('Client_Secret')
 AUTH_URL = 'https://accounts.spotify.com/api/token'
@@ -56,7 +54,3 @@ def getTrack():
     return song['tracks'][ran], testing.json()
      
 song = getTrack()
-#testing = requests.get('https://api.genius.com/search?q=' + song["album"]["artists"][0]["name"] + song['name'] +  '&access_token=' + GENIUSAUTH_URL )   
-#test = testing.json()
-#print(song[1].json())
-#print(test['response']['hits'][0]['result']['url'])
