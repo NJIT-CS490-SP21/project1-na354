@@ -5,17 +5,15 @@
      <link rel="stylesheet" href= {{ url_for('static', filename ='style.css') }} />
 </head>
 
-<body>
+<body style="text-align:center">
      
-
      <ol> </ol>
-     <ol><img src ={{image}}> </ol>
-     <ol>{{name}} </ol>
+     <ol style = "font-size:500%;"></style>{{name}} </ol>
+     <ol> <img src ={{image}} style= "border-radius: 100px;"> </ol>
      <ol>{{artist}} </ol>
-     <ol>{{id}} </ol>
-     <ol>{{lyrics}}</ol>
-     <ol>{{preview}} </ol>
- 
+     <ol><audio controls><source src={{preview}} /></audio></ol>
+     <ol> <a href = {{lyrics}}> Click here to find the lyrics! </a></ol>
+     
 </body>
 
 </html>
