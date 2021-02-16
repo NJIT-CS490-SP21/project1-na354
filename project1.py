@@ -52,10 +52,11 @@ def getArtist():
 def getTrack():
     req = requests.get((ARTIST_URL + RandomID + tracks), headers=headers)
     song =req.json()
-    return song['tracks'][ran]
+    testing = requests.get('https://api.genius.com/search?q=' + song['tracks'][ran]["album"]["artists"][0]["name"] + song['tracks'][ran]['name'] +  '&access_token=' + GENIUSAUTH_URL )   
+    return song['tracks'][ran], testing.json()
      
 song = getTrack()
-testing = requests.get('https://api.genius.com/search?q=' + song["album"]["artists"][0]["name"] + song['name'] +  '&access_token=' + GENIUSAUTH_URL )   
-test = testing.json()
-print(song)
-print(test['response']['hits'][0]['result']['url'])
+#testing = requests.get('https://api.genius.com/search?q=' + song["album"]["artists"][0]["name"] + song['name'] +  '&access_token=' + GENIUSAUTH_URL )   
+#test = testing.json()
+#print(song[1].json())
+#print(test['response']['hits'][0]['result']['url'])

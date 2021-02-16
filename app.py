@@ -10,11 +10,11 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def startflask():
     song = getTrack()
     prev  = ''
-    if (song['preview_url']):
-        prev = song['preview_url']
-        
-    print(song["name"])
-    return flask.render_template("index.html", image = song['album']['images'][0]['url'], name = song["name"], artist = song["album"]["artists"][0]["name"], id = song["id"], preview = prev)
+    if (song[0]['preview_url']):
+        prev = song[0]['preview_url']
+    #print(song[1])
+    #print(song[0]["name"])
+    return flask.render_template("index.html", image = song[0]['album']['images'][0]['url'], name = song[0]["name"], artist = song[0]["album"]["artists"][0]["name"], id = song[0]["id"], preview = prev, lyrics = song[1]['response']['hits'][0]['result']['url'] )
 
 app.run(
     host=os.getenv('IP', '0.0.0.0'),
